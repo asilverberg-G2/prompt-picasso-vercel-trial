@@ -12,8 +12,23 @@ module.exports = async (req, res) => {
 
   if (req.method === 'POST') {
     const { products, category } = req.body;
-    if (!products || products.length !== 6) return res.status(400).json({ success: false, error: 'Must provide exactly 6 products' });
-    await fs.writeFile(PREFILL_FILE, JSON.stringify({ products, category: category || '' }));
+    if (!products || products.length !== 6) {
+      return res.status(400).json({ success: false, error: 'Must provide exactly 6 products' });
+    }
+
+    const savedProducts = await Promise.all(products.map(async (product) => {
+      if (!product.logoBase64 || !product.logoMime) return product;
+
+      const slug = product.name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+      const ext = product.logoMime.includes('png') ? '.png' : product.logoMime.includes('gif') ? '.gif' : product.logoMime.includes('webp') ? '.webp' : '.jpg';
+      const fileName = `${slug}${ext}`;
+      const buffer = Buffer.from(product.logoBase64, 'base64');
+      await fs.writeFile(path.join(TEMP_DIR, fileName), buffer);
+
+      return { name: product.name, reviews: product.reviews, g2Url: product.g2Url, logoPath: fileName };
+    }));
+
+    await fs.writeFile(PREFILL_FILE, JSON.stringify({ products: savedProducts, category: category || '' }));
     return res.json({ success: true });
   }
 

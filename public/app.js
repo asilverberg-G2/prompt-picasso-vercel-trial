@@ -424,7 +424,12 @@ async function applyPrefillIfAvailable() {
       p.name = product.name;
       const nameInput = document.querySelector(`input[data-product-id="${p.id}"][data-field="name"]`);
       if (nameInput) nameInput.value = product.name;
-      if (product.g2Url) scrapeLogo(p.id, product.g2Url, product.name);
+      if (product.logoPath) {
+        p.logoPath = product.logoPath;
+        updateProductStatus(p.id, 'success');
+      } else if (product.g2Url) {
+        scrapeLogo(p.id, product.g2Url, product.name);
+      }
     });
 
     updateGenerateButton();
