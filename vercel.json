@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/scrape-logo", "dest": "/api/scrape-logo.js" },
+    { "src": "/api/upload-logo", "dest": "/api/upload-logo.js" },
+    { "src": "/api/generate-copy", "dest": "/api/generate-copy.js" },
+    { "src": "/api/create-manifest", "dest": "/api/create-manifest.js" },
+    { "src": "/api/manifest", "dest": "/api/manifest.js" },
+    { "src": "/api/prefill", "dest": "/api/prefill.js" },
+    { "src": "/api/prefill-data", "dest": "/api/prefill.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}

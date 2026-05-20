@@ -105,7 +105,8 @@ async function scrapeLogo(g2ProfileUrl, productName) {
       .replace(/^-|-$/g, '');
 
     const fileName = `${sanitizedName}${ext}`;
-    const logoPath = path.join(__dirname, '..', 'temp', fileName);
+    const tempDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, '..', 'temp');
+    const logoPath = path.join(tempDir, fileName);
 
     // Save logo to temp directory
     await fs.writeFile(logoPath, imageResponse.data);
