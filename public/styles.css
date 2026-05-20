@@ -1,0 +1,358 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  margin-bottom: 40px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  color: #FF492C;
+  font-size: 2em;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #666;
+  font-size: 1.1em;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.section h3 {
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.helper-text {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #FF492C;
+}
+
+.product-slot {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.product-slot h4 {
+  color: #555;
+  margin-bottom: 12px;
+  font-size: 1em;
+}
+
+.product-slot .row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.2fr 80px;
+  gap: 12px;
+  align-items: end;
+}
+
+.paste-area {
+  border: 2px dashed #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  cursor: text;
+  background: #fafafa;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.paste-area:hover {
+  border-color: #aaa;
+}
+
+.paste-area--focused {
+  outline: none;
+  border-color: #FF492C;
+  background: #fff3f0;
+}
+
+.paste-area.success {
+  border-color: #28a745;
+  background: #f0fff4;
+}
+
+.paste-hint {
+  font-size: 0.85em;
+  color: #666;
+  pointer-events: none;
+}
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.upload-btn:hover {
+  background: #f0f0f0;
+  border-color: #FF492C;
+  color: #FF492C;
+}
+
+.product-slot .field {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-slot .field label {
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.product-slot .field input {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.product-slot .field input[type="file"] {
+  padding: 4px;
+  font-size: 0.85em;
+}
+
+.status-indicator {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  text-align: center;
+  font-weight: 600;
+}
+
+.status-indicator.pending {
+  background: #e0e0e0;
+  color: #666;
+}
+
+.status-indicator.loading {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-indicator.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-indicator.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.input-with-meta {
+  position: relative;
+}
+
+.meta-info {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.short {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.badge.long {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.char-count {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.char-count.warning {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.char-count.error {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #FF492C;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #e63920;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #5a6268;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.success-message {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.success-message p {
+  margin-bottom: 12px;
+  color: #155724;
+}
+
+.success-message code {
+  display: block;
+  background: white;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #333;
+  word-break: break-all;
+  margin-bottom: 16px;
+}
+
+.instruction {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.command-box {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.command-box strong {
+  color: #856404;
+}
+
+.bookmarklet-btn {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 12px;
+  cursor: grab;
+}
+
+.bookmarklet-btn:active {
+  cursor: grabbing;
+}
