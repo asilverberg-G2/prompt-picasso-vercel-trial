@@ -148,6 +148,15 @@ function attachEventListeners() {
     location.reload();
   });
 
+  document.getElementById('copy-prompt-btn').addEventListener('click', () => {
+    const prompt = 'Apply the manifest to Figma from https://prompt-picasso-vercel-trial.vercel.app/api/manifest';
+    navigator.clipboard.writeText(prompt).then(() => {
+      const btn = document.getElementById('copy-prompt-btn');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = 'Copy prompt to clipboard'; }, 2000);
+    });
+  });
+
   // Header input - update character count and mode
   document.getElementById('header').addEventListener('input', (e) => {
     const text = e.target.value;

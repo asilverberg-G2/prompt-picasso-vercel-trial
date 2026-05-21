@@ -84,11 +84,12 @@
       <section id="success-section" class="section" style="display: none;">
         <h2>✓ Manifest Ready!</h2>
         <div class="success-message">
-          <p>Your campaign is ready. To apply it to Figma, tell me:</p>
+          <p>Your <strong id="category-name-display"></strong> campaign is ready.</p>
+          <p>Go to OpenCode and say:</p>
           <div class="command-box">
-            <strong>"Apply the manifest to Figma"</strong>
+            <strong>"Apply the manifest to Figma from https://prompt-picasso-vercel-trial.vercel.app/api/manifest"</strong>
           </div>
-          <p class="instruction">I'll duplicate the templates, update the copy and logos, and create a new section named <strong id="category-name-display"></strong> in the Figma file.</p>
+          <button class="btn btn-secondary" id="copy-prompt-btn" style="margin-top: 12px;">Copy prompt to clipboard</button>
         </div>
         <button id="start-over-btn" class="btn btn-secondary">Start Over</button>
       </section>
